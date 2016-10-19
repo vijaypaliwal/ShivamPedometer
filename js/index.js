@@ -35,12 +35,7 @@ var app = {
     onDeviceReady: function () {
         app.receivedEvent('deviceready');
         alert("device ready function");
-        stepcounter.getTodayStepsCount(
-           function (historyData) {
-               success(historyData);
-           },
-               failure
-           );
+        stepcounter.getTodayStepCount(success, failure);
 
         var success = function (message) {
             alert(message);
