@@ -34,12 +34,7 @@ var app = {
     // function, we must explicitly call 'app.receivedEvent(...);'
     onDeviceReady: function () {
         app.receivedEvent('deviceready');
-        // sample result :
-        //{
-        //  "2015-01-01":{"offset": 123, "steps": 456},
-        //  "2015-01-02":{"offset": 579, "steps": 789}
-        //  ...
-        //}
+        alert("device ready function");
         stepcounter.getTodayStepsCount(
            function (historyData) {
                success(historyData);
