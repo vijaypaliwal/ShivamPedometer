@@ -44,9 +44,9 @@ var app = {
            function (historyData) {
                for (var i = 0; i < 4; i++)
                {
-                   alert(historyData[i][0]);
-                   alert(historyData[i][1].offset);
-                   alert(historyData[i][1].steps)
+                   alert(historyData[i]);
+                   alert(historyData[i][0].offset);
+                   alert(historyData[i][0].steps)
                }
               // success(historyData);
            },
