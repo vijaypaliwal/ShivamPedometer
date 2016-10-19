@@ -34,9 +34,21 @@ var app = {
     // function, we must explicitly call 'app.receivedEvent(...);'
     onDeviceReady: function() {
         app.receivedEvent('deviceready');
+        // sample result :
+        //{
+        //  "2015-01-01":{"offset": 123, "steps": 456},
+        //  "2015-01-02":{"offset": 579, "steps": 789}
+        //  ...
+        //}
         stepcounter.getHistory(
            function (historyData) {
-               success(historyData);
+               for (var i = 0; i < 4; i++)
+               {
+                   alert(historyData[i][0]);
+                   alert(historyData[i][1].offset);
+                   alert(historyData[i][1].steps)
+               }
+              // success(historyData);
            },
                failure
            );
