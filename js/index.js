@@ -35,22 +35,7 @@ var app = {
     onDeviceReady: function () {
         app.receivedEvent('deviceready');
         alert("device ready function");
-        var startingOffset = 0;
-        stepcounter.start(startingOffset, successnew, failure);
-        stepcounter.getTodayStepCount(success, failure);
-
-        var success = function (message) {
-            alert(message);
-        }
         
-        var successnew = function (message) {
-            alert("started");
-        }
-        var failure = function () {
-            alert("Error calling CordovaStepCounter Plugin");
-        }
-        
-        stepcounter.stop(success, failure);
 
     },
     // Update DOM on a Received Event
@@ -62,6 +47,23 @@ var app = {
         listeningElement.setAttribute('style', 'display:none;');
         receivedElement.setAttribute('style', 'display:block;');
 
-        console.log('Received Event: ' + id);
+       // console.log('Received Event: ' + id);
+        var startingOffset = 0;
+        stepcounter.start(startingOffset, successnew, failure);
+        stepcounter.getTodayStepCount(success, failure);
+
+        var success = function (message) {
+            alert(message);
+        }
+
+        var successnew = function (message) {
+            alert("started");
+        }
+        var failure = function () {
+            alert("Error calling CordovaStepCounter Plugin");
+        }
+
+        stepcounter.stop(success, failure);
+
     }
 };
