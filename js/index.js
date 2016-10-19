@@ -49,16 +49,14 @@ var app = {
 
        // console.log('Received Event: ' + id);
         var startingOffset = 0;
-        stepcounter.start(startingOffset, successnew, failure);
-        stepcounter.getTodayStepCount(success, failure);
-
-        var success = function (message) {
-            alert(message);
-        }
-
-        var successnew = function (message) {
+        stepcounter.start(startingOffset, function (message) {
             alert("started");
-        }
+        }, failure);
+        stepcounter.getTodayStepCount(function (message) {
+            alert(message);
+        }, failure);
+
+        
         var failure = function () {
             alert("Error calling CordovaStepCounter Plugin");
         }
