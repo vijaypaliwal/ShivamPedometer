@@ -34,6 +34,21 @@ var app = {
     // function, we must explicitly call 'app.receivedEvent(...);'
     onDeviceReady: function() {
         app.receivedEvent('deviceready');
+        stepcounter.getHistory(
+           function (historyData) {
+               success(historyData);
+           },
+               failure
+           );
+
+        var success = function (message) {
+            alert(message);
+        }
+
+        var failure = function () {
+            alert("Error calling CordovaStepCounter Plugin");
+        }
+
     },
     // Update DOM on a Received Event
     receivedEvent: function(id) {

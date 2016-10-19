@@ -39,23 +39,11 @@
 
     </div>
     <script type="text/javascript" src="cordova.js"></script>
+    <script type="text/javascript" src="js/stepcounter.js"></script>
     <script type="text/javascript" src="js/index.js"></script>
     <script type="text/javascript">
         app.initialize();
-        stepcounter.getHistory(
-            function (historyData) {
-                success(historyData);
-            },
-                failure
-            );
-
-        var success = function (message) {
-            alert(message);
-        }
-
-        var failure = function () {
-            alert("Error calling CordovaStepCounter Plugin");
-        }
+       
     </script>
 </body>
 </html>
