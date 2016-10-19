@@ -38,12 +38,26 @@
         </div>
 
     </div>
-    <script type="text/javascript" src="cordova.js"></script>
-
+    <!--<script type="text/javascript" src="cordova.js"></script>-->
+    <script type="text/javascript" src="js/jquery-1.10.2.js"></script>
     <script type="text/javascript" src="js/index.js"></script>
     <script type="text/javascript">
         app.initialize();
-       
+
+        var result=
+        {
+          "2015-01-01":{"offset": 123, "steps": 456},
+          "2015-01-02":{"offset": 579, "steps": 789} 
+        };
+        var newData = [];
+        displayData();
+        function displayData()
+        {
+            debugger;
+            newData = result;
+            alert(result[0]);
+            alert(result[0].offset);
+        }
     </script>
 </body>
 </html>
