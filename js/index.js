@@ -61,7 +61,7 @@ var app = {
             alert("Error calling CordovaStepCounter Plugin");
         }
 
-        stepcounter.stop(success, failure);
+        //stepcounter.stop(success, failure);
 
     }
 };
