@@ -34,20 +34,17 @@ var app = {
     // function, we must explicitly call 'app.receivedEvent(...);'
     onDeviceReady: function() {
         app.receivedEvent('deviceready');
-        stepcounter.getHistory(
-           function (historyData) {
-               success(historyData);
-           },
-               failure
-           );
-
-        var success = function (message) {
-            alert(message);
-        }
-
-        var failure = function () {
-            alert("Error calling CordovaStepCounter Plugin");
-        }
+        var successHandler = function (pedometerData) {
+            alert(pedometerData.numberOfSteps);
+            // pedometerData.distance;
+            // pedometerData.floorsAscended;
+            // pedometerData.floorsDescended;
+        };
+        var options = {
+            "startDate": new Date("Fri Oct 01 2016 15:20:00"),
+            "endDate": new Date("Fri Oct 01 2016 15:25:00")
+        };
+        pedometer.queryData(successHandler, onError, options);
 
     },
     // Update DOM on a Received Event
