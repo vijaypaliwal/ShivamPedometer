@@ -35,8 +35,10 @@
         <div id="deviceready" class="blink">
             <p class="event listening">Connecting to Device</p>
             <p class="event received">Device is Ready</p>
-            <input type="button" name="pay" value="Donate " onclick="PayFor()" />
+            
         </div>
+
+        <input type="button" name="pay" value="Donate" style="width:150px;height:150px;" onclick="PayFor()" />
     </div>
 
     <script type="text/javascript" src="cordova.js"></script>
@@ -104,6 +106,7 @@
 
         function PayFor()
         {
+            alert("i am in ");
             window.plugins.pgio.ajax(message);
         }
         //[ STEP 2: send payment request
