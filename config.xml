@@ -64,7 +64,9 @@
     <plugin name="cordova-plugin-network-information" />
     <plugin name="cordova-plugin-splashscreen" />
     <plugin name="cordova-plugin-vibration" />
-    <plugin name="PaymentGatewayIOPlugin" source="npm" value="PaymentGatewayIOPlugin" />
+  <feature name="PaymentGatewayIOPlugin">
+    <param name="ios-package" value="PaymentGatewayIOPlugin" />
+  </feature>
 
     <!-- Third party plugins -->
     <!-- A list of available plugins are available at https://build.phonegap.com/plugins -->
