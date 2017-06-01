@@ -38,79 +38,18 @@
             
         </div>
 
-        <input type="button" name="pay" value="Donate" style="width:150px;height:150px;" onclick="PayFor()" />
+        <button id="buyNowBtn"> Buy Now !</button>
+        <button id="buyInFutureBtn"> Pay in Future !</button>
+        <button id="profileSharingBtn"> Profile Sharing !</button>
     </div>
 
     <script type="text/javascript" src="cordova.js"></script>
-    <script type="text/javascript" src="js/PaymentGatewayIOPlugin.js"></script>
+    <script type="text/javascript" src="js/paypal-mobile-js-helper.js"></script>
     <script type="text/javascript" src="js/index.js"></script>
     <script type="text/javascript">
         app.initialize();
-        var message = {
-            pgio_api_key: "a092cd65-9ef0-4c84-3dd2-0d3eb702acb9",
-            gateway: "authorizenet",
-            type: "sale",
-            credentials: {
-                api_login_id: "2bGt4dgzA4",
-                transaction_key: "8We2fE62q87sLQ9c",
-                sandbox: true
-            },
-            card_info: {
-                account_name: "Test User",
-                account_number: "4111111111111111",
-                account_type: "VISA",
-                expires_month: "07",
-                expires_year: "2014",
-                secure_code: "028",
-
-                company: "Extiris",
-                address: "123 Somewhereout Tr",
-                city: "Grand Rapids",
-                state: "MI",
-                zip: "49503"
-            },
-            amount: 1.31,
-            options: {
-                customer_id: "123456"
-            },
-
-            //////////
-            loading: function () {
-                // triggered before our payment request is sent
-                console.log("TEST: PGIORequest.loading");
-            },
-
-            //////////
-            response: function (data) {
-                // triggered upon successful request from server
-                console.log("TEST: PGIORequest.response: ", data);
-            },
-
-            //////////
-            exception: function (error) {
-                console.log("TEST: PGIORequest.exception: ", error);
-            },
-
-            //////////
-            error: function (data) {
-                // triggered on a server failure
-                console.log("TEST: PGIORequest.error: ", data);
-            },
-
-            //////////
-            complete: function () {
-                // triggered when everything is all complete
-                console.log("TEST: PGIORequest.complete");
-            }
-        };
-
-        function PayFor()
-        {
-            alert("i am in ");
-            window.plugins.pgio.ajax(message);
-        }
-        //[ STEP 2: send payment request
-        
+      
+         
     </script>
 </body>
 </html>
