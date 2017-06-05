@@ -51,8 +51,8 @@ var app = {
     },
     initPaymentUI: function () {
         var clientIDs = {
-            "PayPalEnvironmentProduction": "YOUR_PRODUCTION_CLIENT_ID",
-            "PayPalEnvironmentSandbox": "YOUR_SANDBOX_CLIENT_ID"
+            //"PayPalEnvironmentProduction": "YOUR_PRODUCTION_CLIENT_ID",
+            "PayPalEnvironmentSandbox": "SEWA8RUJJM5QW"
         };
         PayPalMobile.init(clientIDs, app.onPayPalMobileInit);
 
@@ -91,7 +91,6 @@ var app = {
         var cardScanBtn = document.getElementById("cardScanBtn");
 
         buyNowBtn.onclick = function (e) {
-            
             // single payment
             PayPalMobile.renderSinglePaymentUI(app.createPayment(), app.onSuccesfulPayment, app.onUserCanceled);
         };
@@ -114,18 +113,21 @@ var app = {
                 "requireCVV": false,
                 "requirePostalCode": false,
                 "restrictPostalCodeToNumericOnly": true
-            },
-                       app.onCardIOComplete,
-                       app.onUserCanceled
-                     );
+            }, app.onCardIOComplete,
+               app.onUserCanceled
+          );
         };
     },
     onPayPalMobileInit: function () {
         // must be called
         // use PayPalEnvironmentNoNetwork mode to get look and feel of the flow
+        alert("heelo");
         PayPalMobile.prepareToRender("PayPalEnvironmentSandbox", app.configuration(), app.onPrepareRender);
     },
     onUserCanceled: function (result) {
+        alert("heelo1");
         console.log(result);
     }
 };
+
+app.initialize();
