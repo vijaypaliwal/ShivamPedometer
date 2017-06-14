@@ -56,20 +56,20 @@ var app = {
             "PayPalEnvironmentProduction": "AYNVNaX0IKT9KaecXDRt4ogTqH3tiJ79FW1gyxFizySVIbR9AXf2SM471lyhLdgthXDK6v6ubfeiTXoY",
             "PayPalEnvironmentSandbox": "AfYpJEHq1xr7hf3LKTiDKMIWrN5uW_ZDSX5Yr60AfopGP8Ja-yJDnUPqSZKimYC89FWTj-H_XsdcRxDi"
         };
-        alert("hello");
+        
         PayPalMobile.init(clientIDs, app.onPayPalMobileInit);
-        alert("hello1212");
+        alert("payment plugin initialize");
     },
     onSuccesfulPayment: function (payment) {
-        console.log("payment success: " + JSON.stringify(payment, null, 4));
+        alert("payment success: " + JSON.stringify(payment, null, 4));
     },
     onAuthorizationCallback: function (authorization) {
         console.log("authorization: " + JSON.stringify(authorization, null, 4));
     },
     createPayment: function () {
         // for simplicity use predefined amount
-        var paymentDetails = new PayPalPaymentDetails("50.00", "0.00", "0.00");
-        var payment = new PayPalPayment("50.00", "USD", "Awesome Sauce", "Sale",
+        var paymentDetails = new PayPalPaymentDetails("2.00", "0.00", "0.00");
+        var payment = new PayPalPayment("2.00", "USD", "Awesome Sauce", "Sale",
           paymentDetails);
         return payment;
     },
@@ -117,7 +117,7 @@ var app = {
           app.onPrepareRender);
     },
     onUserCanceled: function (result) {
-        console.log(result);
+        alert(result);
     }
 };
 
