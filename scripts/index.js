@@ -71,7 +71,7 @@ var app = {
         alert(amount);
         // for simplicity use predefined amount
         var paymentDetails = new PayPalPaymentDetails(amount, "0.00", "0.00");
-        var payment = new PayPalPayment(amount, "INR", "Awesome Sauce", "Sale",
+        var payment = new PayPalPayment(amount, "USD", "Awesome Sauce", "Sale",
           paymentDetails);
         return payment;
     },
