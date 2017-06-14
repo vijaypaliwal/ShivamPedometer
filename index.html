@@ -70,20 +70,87 @@
             </div>
         </div>
     </nav>
-    <div class="app container">
+    <div class="app container-fluid">
 
-        <div class="page-header">
-            <h1>Apache Cordova</h1>
+         
+        <div class="blink" id="deviceready">
+            <p class="event listening label label-warning">Connecting to Device</p>
+            <p class="event received label label-success" style="display:none;">D</p>
         </div>
+                    <!--<div class="row">
+                        <div class="col-md-12 col-sm-12 col-xs-12">
+                            <h5 class="text-muted"> Credit Card Number</h5>
+                        </div>
+                        <div class="col-md-12 col-sm-12 col-xs-12"  >
+                            <input type="text" class="form-control" placeholder="0000" />
+                        </div>
+                         
+                    </div>
+                    <div class="row ">
+                        <div class="col-md-3 col-sm-3 col-xs-12">
+                            <span class="help-block text-muted small-font"> Expiry Month</span>
+                            <input type="text" class="form-control" placeholder="MM" />
+                        </div>
+                        <div class="col-md-3 col-sm-3 col-xs-12">
+                            <span class="help-block text-muted small-font">  Expiry Year</span>
+                            <input type="text" class="form-control" placeholder="YY" />
+                        </div>
+                        <div class="col-md-3 col-sm-3 col-xs-12">
+                            <span class="help-block text-muted small-font">  CCV</span>
+                            <input type="text" class="form-control" placeholder="CCV" />
+                        </div>
+                         
+                    </div>
+                    <div class="row ">
+                        <div class="col-md-3 col-sm-3 col-xs-12">
+                            <span class="help-block text-muted small-font">  Name on the card</span>
+                            <input type="text" class="form-control" placeholder="Name On The Card" />
+                        </div>
+                         
+                    </div>-->
+        <div class="page-header">
+            <h4>Select Donation Amount</h4>
+            <select id="selectbasic" name="selectbasic" class="form-control">
+                <option value="10">10</option>
+                <option value="20">20</option>
+                <option value="30">30</option>
+                <option value="40">40</option>
+                <option value="50">50</option>
+                <option value="60">60</option>
+                <option value="70">70</option>
+                <option value="80">80</option>
+                <option value="90">90</option>
+                <option value="100">100</option>
+            </select>
+        </div>
+        
+                    <div class="row ">
+                        <div class="col-md-6 col-sm-6 col-xs-6 pad-adjust">
+                            <input type="submit" class="btn btn-danger" value="CANCEL" />
+                        </div>
+                        <div class="col-md-6 col-sm-6 col-xs-6 pad-adjust">
+                            <input type="button" id="buyNowBtn" class="btn btn-warning btn-block" value="PAY NOW" />
+                        </div>
+                    </div>
+                 
+        <!-- CREDIT CARD DIV END  
         <div id="deviceready" class="blink well">
             <p class="event listening label label-warning">Connecting to Device</p>
             <p class="event received label label-success" style="display:none;">Device is Ready</p>
 
             <button id="buyNowBtn" class="btn btn-info"> Buy Now !</button>
             <!--<button id="buyInFutureBtn" class="btn btn-success"> Pay in Future !</button>
-            <button id="profileSharingBtn  btn btn-primary"> Profile Sharing !</button>-->
-        </div>
+        <button id="profileSharingBtn  btn btn-primary"> Profile Sharing !</button>
+        </div> -->
+        
+
+
+
     </div>
+
+    
+       
+     
     <script type="text/javascript" src="cordova.js"></script>
     <script type="text/javascript" src="scripts/paypal-mobile-js-helper.js"></script>
     <script src="scripts/jquery-1.10.2.min.js"></script>

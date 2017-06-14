@@ -58,7 +58,7 @@ var app = {
         };
         
         PayPalMobile.init(clientIDs, app.onPayPalMobileInit);
-        alert("payment plugin initialize");
+        alert("payment plugin initialized");
     },
     onSuccesfulPayment: function (payment) {
         alert("payment success: " + JSON.stringify(payment, null, 4));
@@ -67,9 +67,11 @@ var app = {
         console.log("authorization: " + JSON.stringify(authorization, null, 4));
     },
     createPayment: function () {
+        var amount = $("#selectbasic").val();
+        alert(amount);
         // for simplicity use predefined amount
-        var paymentDetails = new PayPalPaymentDetails("2.00", "0.00", "0.00");
-        var payment = new PayPalPayment("2.00", "USD", "Awesome Sauce", "Sale",
+        var paymentDetails = new PayPalPaymentDetails(amount, "0.00", "0.00");
+        var payment = new PayPalPayment(amount, "INR", "Awesome Sauce", "Sale",
           paymentDetails);
         return payment;
     },
