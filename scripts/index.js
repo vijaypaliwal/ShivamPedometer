@@ -75,10 +75,10 @@ var app = {
         receivedElement.setAttribute('style', 'display:block;');
 
         console.log('Received Event: ' + id);
-
+        app.addRZPEventListener();
         // start to initialize PayPalMobile library
         app.initPaymentUI();
-        app.addRZPEventListener();
+        
 
     },
     initPaymentUI: function () {
@@ -153,6 +153,7 @@ var app = {
     },
     addRZPEventListener: function () {
         document.getElementById('buyNowBtnRazor').addEventListener('click', function (event) {
+            alert("I am in ");
             RazorpayCheckout.open(rzpOptions, successCallback, cancelCallback);
             event.preventDefault();
         });
