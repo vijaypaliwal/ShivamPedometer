@@ -23,6 +23,7 @@
 	<plugin name="cordova-plugin-vibration" />
 
 	<plugin name="com.paypal.cordova.mobilesdk" source="npm" />
+	<plugin name="com.razorpay.cordova" spec="https://github.com/razorpay/razorpay-cordova.git" />
   <content src="index.html" />
   <access origin="*" />
   <vs:features />

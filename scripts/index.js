@@ -16,6 +16,36 @@
  * specific language governing permissions and limitations
  * under the License.
  */
+
+
+var rzpOptions = {
+    key: "rzp_test_JUAV2OBacuKCVf",
+    amount: "2000", // 2000 paise = INR 20
+    name: "Ajay Paliwal",
+    description: "Just for test",
+    image: "https://i.imgur.com/n5tjHFD.png",
+    handler: function (response) {
+        alert(response.razorpay_payment_id);
+    },
+    prefill: {
+        name: "Ajay Paliwal",
+        email: "ajaypaliwal.cto@outlook.com"
+    },
+    notes: {
+        address: "Hello World"
+    },
+    theme: {
+        color: "#F37254"
+    }
+};
+
+var successCallback = function (payment_id) {
+    alert('payment_id: ' + payment_id)
+};
+
+var cancelCallback = function (error) {
+    alert(error.description + ' (Error ' + error.code + ')')
+};
 var app = {
     // Application Constructor
     initialize: function () {
@@ -48,7 +78,7 @@ var app = {
 
         // start to initialize PayPalMobile library
         app.initPaymentUI();
-
+        app.addRZPEventListener();
 
     },
     initPaymentUI: function () {
@@ -120,6 +150,12 @@ var app = {
     },
     onUserCanceled: function (result) {
         alert(result);
+    },
+    addRZPEventListener: function () {
+        document.getElementById('buyNowBtnRazor').addEventListener('click', function (event) {
+            RazorpayCheckout.open(rzpOptions, successCallback, cancelCallback);
+            event.preventDefault();
+        });
     }
 };
 
