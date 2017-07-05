@@ -77,88 +77,88 @@ var Newapp = {
         console.log('Received Event: ' + id);
         app.addRZPEventListener();
         // start to initialize PayPalMobile library
-        app.initPaymentUI();
+        //app.initPaymentUI();
         
 
     },
-    initPaymentUI: function () {
-        var clientIDs = {
-            "PayPalEnvironmentProduction": "AYNVNaX0IKT9KaecXDRt4ogTqH3tiJ79FW1gyxFizySVIbR9AXf2SM471lyhLdgthXDK6v6ubfeiTXoY",
-            "PayPalEnvironmentSandbox": "AfYpJEHq1xr7hf3LKTiDKMIWrN5uW_ZDSX5Yr60AfopGP8Ja-yJDnUPqSZKimYC89FWTj-H_XsdcRxDi"
-        };
+    //initPaymentUI: function () {
+    //    var clientIDs = {
+    //        "PayPalEnvironmentProduction": "AYNVNaX0IKT9KaecXDRt4ogTqH3tiJ79FW1gyxFizySVIbR9AXf2SM471lyhLdgthXDK6v6ubfeiTXoY",
+    //        "PayPalEnvironmentSandbox": "AfYpJEHq1xr7hf3LKTiDKMIWrN5uW_ZDSX5Yr60AfopGP8Ja-yJDnUPqSZKimYC89FWTj-H_XsdcRxDi"
+    //    };
         
-        PayPalMobile.init(clientIDs, app.onPayPalMobileInit);
-        alert("payment plugin initialized");
-    },
-    onSuccesfulPayment: function (payment) {
-        alert("payment success: " + JSON.stringify(payment, null, 4));
-    },
-    onAuthorizationCallback: function (authorization) {
-        console.log("authorization: " + JSON.stringify(authorization, null, 4));
-    },
-    createPayment: function () {
-        var amount = $("#selectbasic").val();
-        alert(amount);
-        // for simplicity use predefined amount
-        var paymentDetails = new PayPalPaymentDetails(amount, "0.00", "0.00");
-        var payment = new PayPalPayment(amount, "USD", "Awesome Sauce", "Sale",
-          paymentDetails);
-        return payment;
-    },
-    configuration: function () {
-        // for more options see `paypal-mobile-js-helper.js`
-        var config = new PayPalConfiguration({
-            merchantName: "My test shop",
-            merchantPrivacyPolicyURL: "https://mytestshop.com/policy",
-            merchantUserAgreementURL: "https://mytestshop.com/agreement"
-        });
-        return config;
-    },
-    onPrepareRender: function () {
-        // buttons defined in index.html
-        //  <button id="buyNowBtn"> Buy Now !</button>
-        //  <button id="buyInFutureBtn"> Pay in Future !</button>
-        //  <button id="profileSharingBtn"> ProfileSharing !</button>
-        var buyNowBtn = document.getElementById("buyNowBtn");
-        var buyInFutureBtn = document.getElementById("buyInFutureBtn");
-        var profileSharingBtn = document.getElementById("profileSharingBtn");
+    //    PayPalMobile.init(clientIDs, app.onPayPalMobileInit);
+    //    alert("payment plugin initialized");
+    //},
+    //onSuccesfulPayment: function (payment) {
+    //    alert("payment success: " + JSON.stringify(payment, null, 4));
+    //},
+    //onAuthorizationCallback: function (authorization) {
+    //    console.log("authorization: " + JSON.stringify(authorization, null, 4));
+    //},
+    //createPayment: function () {
+    //    var amount = $("#selectbasic").val();
+    //    alert(amount);
+    //    // for simplicity use predefined amount
+    //    var paymentDetails = new PayPalPaymentDetails(amount, "0.00", "0.00");
+    //    var payment = new PayPalPayment(amount, "USD", "Awesome Sauce", "Sale",
+    //      paymentDetails);
+    //    return payment;
+    //},
+    //configuration: function () {
+    //    // for more options see `paypal-mobile-js-helper.js`
+    //    var config = new PayPalConfiguration({
+    //        merchantName: "My test shop",
+    //        merchantPrivacyPolicyURL: "https://mytestshop.com/policy",
+    //        merchantUserAgreementURL: "https://mytestshop.com/agreement"
+    //    });
+    //    return config;
+    //},
+    //onPrepareRender: function () {
+    //    // buttons defined in index.html
+    //    //  <button id="buyNowBtn"> Buy Now !</button>
+    //    //  <button id="buyInFutureBtn"> Pay in Future !</button>
+    //    //  <button id="profileSharingBtn"> ProfileSharing !</button>
+    //    var buyNowBtn = document.getElementById("buyNowBtn");
+    //    var buyInFutureBtn = document.getElementById("buyInFutureBtn");
+    //    var profileSharingBtn = document.getElementById("profileSharingBtn");
 
-        buyNowBtn.onclick = function (e) {
-            alert(" I m here");
-            // single payment
-            PayPalMobile.renderSinglePaymentUI(app.createPayment(), app.onSuccesfulPayment,
-              app.onUserCanceled);
-        };
+    //    buyNowBtn.onclick = function (e) {
+    //        alert(" I m here");
+    //        // single payment
+    //        PayPalMobile.renderSinglePaymentUI(app.createPayment(), app.onSuccesfulPayment,
+    //          app.onUserCanceled);
+    //    };
 
-        buyInFutureBtn.onclick = function (e) {
-            // future payment
-            PayPalMobile.renderFuturePaymentUI(app.onAuthorizationCallback, app
-              .onUserCanceled);
-        };
+    //    buyInFutureBtn.onclick = function (e) {
+    //        // future payment
+    //        PayPalMobile.renderFuturePaymentUI(app.onAuthorizationCallback, app
+    //          .onUserCanceled);
+    //    };
 
-        profileSharingBtn.onclick = function (e) {
-            // profile sharing
-            PayPalMobile.renderProfileSharingUI(["profile", "email", "phone",
-              "address", "futurepayments", "paypalattributes"
-            ], app.onAuthorizationCallback, app.onUserCanceled);
-        };
-    },
-    onPayPalMobileInit: function () {
-        // must be called
-        // use PayPalEnvironmentNoNetwork mode to get look and feel of the flow
-        PayPalMobile.prepareToRender("PayPalEnvironmentSandbox", app.configuration(),
-          app.onPrepareRender);
-    },
-    onUserCanceled: function (result) {
-        alert(result);
-    },
-    addRZPEventListener: function () {
-        document.getElementById('buyNowBtnRazor').addEventListener('click', function (event) {
-            alert("I am in ");
-            RazorpayCheckout.open(rzpOptions, successCallback, cancelCallback);
-            event.preventDefault();
-        });
-    }
+    //    profileSharingBtn.onclick = function (e) {
+    //        // profile sharing
+    //        PayPalMobile.renderProfileSharingUI(["profile", "email", "phone",
+    //          "address", "futurepayments", "paypalattributes"
+    //        ], app.onAuthorizationCallback, app.onUserCanceled);
+    //    };
+    //},
+    //onPayPalMobileInit: function () {
+    //    // must be called
+    //    // use PayPalEnvironmentNoNetwork mode to get look and feel of the flow
+    //    PayPalMobile.prepareToRender("PayPalEnvironmentSandbox", app.configuration(),
+    //      app.onPrepareRender);
+    //},
+    //onUserCanceled: function (result) {
+    //    alert(result);
+    //},
+    //addRZPEventListener: function () {
+    //    document.getElementById('buyNowBtnRazor').addEventListener('click', function (event) {
+    //        alert("I am in ");
+    //        RazorpayCheckout.open(rzpOptions, successCallback, cancelCallback);
+    //        event.preventDefault();
+    //    });
+    //}
 };
 
 Newapp.initialize();

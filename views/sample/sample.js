@@ -117,6 +117,97 @@ angular.module('App').controller('SampleCtrl', function ($scope, $ionicListDeleg
   $scope.finalSubmit = function () {
       $ionicLoading.show({ template: 'Submitting...', duration: 2000 })
   }
+
+
+
+  $scope.initPaymentUI= function () {
+        var clientIDs = {
+            "PayPalEnvironmentProduction": "AYNVNaX0IKT9KaecXDRt4ogTqH3tiJ79FW1gyxFizySVIbR9AXf2SM471lyhLdgthXDK6v6ubfeiTXoY",
+            "PayPalEnvironmentSandbox": "AfYpJEHq1xr7hf3LKTiDKMIWrN5uW_ZDSX5Yr60AfopGP8Ja-yJDnUPqSZKimYC89FWTj-H_XsdcRxDi"
+        };
+        
+        PayPalMobile.init(clientIDs, app.onPayPalMobileInit);
+        alert("payment plugin initialized");
+  }
+
+    $scope.onSuccesfulPayment=function (payment) {
+        alert("payment success: " + JSON.stringify(payment, null, 4));
+    }
+
+    $scope.onAuthorizationCallback= function (authorization) {
+        console.log("authorization: " + JSON.stringify(authorization, null, 4));
+    }
+
+    $scope.createPayment= function () {
+        var amount = $("#selectbasic").val();
+        alert(amount);
+        // for simplicity use predefined amount
+        var paymentDetails = new PayPalPaymentDetails(amount, "0.00", "0.00");
+        var payment = new PayPalPayment(amount, "USD", "Awesome Sauce", "Sale",
+          paymentDetails);
+        return payment;
+    }
+
+    $scope.configuration= function () {
+        // for more options see `paypal-mobile-js-helper.js`
+        var config = new PayPalConfiguration({
+            merchantName: "My test shop",
+            merchantPrivacyPolicyURL: "https://mytestshop.com/policy",
+            merchantUserAgreementURL: "https://mytestshop.com/agreement"
+        });
+        return config;
+    }
+
+    $scope.onPrepareRender= function () {
+        // buttons defined in index.html
+        //  <button id="buyNowBtn"> Buy Now !</button>
+        //  <button id="buyInFutureBtn"> Pay in Future !</button>
+        //  <button id="profileSharingBtn"> ProfileSharing !</button>
+        var buyNowBtn = document.getElementById("buyNowBtn");
+        var buyInFutureBtn = document.getElementById("buyInFutureBtn");
+        var profileSharingBtn = document.getElementById("profileSharingBtn");
+
+        buyNowBtn.onclick = function (e) {
+            alert(" I m here");
+            // single payment
+            PayPalMobile.renderSinglePaymentUI(app.createPayment(), app.onSuccesfulPayment,
+              app.onUserCanceled);
+        };
+
+        buyInFutureBtn.onclick = function (e) {
+            // future payment
+            PayPalMobile.renderFuturePaymentUI(app.onAuthorizationCallback, app
+              .onUserCanceled);
+        };
+
+        profileSharingBtn.onclick = function (e) {
+            // profile sharing
+            PayPalMobile.renderProfileSharingUI(["profile", "email", "phone",
+              "address", "futurepayments", "paypalattributes"
+            ], app.onAuthorizationCallback, app.onUserCanceled);
+        };
+    }
+
+    $scope.onPayPalMobileInit= function () {
+        // must be called
+        // use PayPalEnvironmentNoNetwork mode to get look and feel of the flow
+        PayPalMobile.prepareToRender("PayPalEnvironmentSandbox", app.configuration(),
+          app.onPrepareRender);
+    }
+
+    $scope.onUserCanceled= function (result) {
+        alert(result);
+    }
+
+   $scope.addRZPEventListener= function () {
+        document.getElementById('buyNowBtnRazor').addEventListener('click', function (event) {
+            alert("I am in ");
+            RazorpayCheckout.open(rzpOptions, successCallback, cancelCallback);
+            event.preventDefault();
+        });
+    }
+
+   $scope.initPaymentUI();
   
 }).directive('formManager', function ($ionicLoading) {
     return {
