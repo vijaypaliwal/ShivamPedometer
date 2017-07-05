@@ -102,8 +102,7 @@ angular.module('App').controller('SampleCtrl', function ($scope, $ionicListDeleg
 
   $scope.checkout = function () {
       // $ionicLoading.show();
-      PayPalMobile.renderSinglePaymentUI($scope.createPayment(), $scope.onSuccesfulPayment,
-             $scope.onUserCanceled);
+      
   }
 
 
@@ -170,12 +169,13 @@ angular.module('App').controller('SampleCtrl', function ($scope, $ionicListDeleg
         buyNowBtn.onclick = function (e) {
             alert(" I m here");
             // single payment
-          
+            PayPalMobile.renderSinglePaymentUI($scope.createPayment(), $scope.onSuccesfulPayment,
+               $scope.onUserCanceled);
         };
 
         buyInFutureBtn.onclick = function (e) {
             // future payment
-            PayPalMobile.renderFuturePaymentUI(app.onAuthorizationCallback, app
+            PayPalMobile.renderFuturePaymentUI($scope.onAuthorizationCallback, $scope
               .onUserCanceled);
         };
 
@@ -183,15 +183,15 @@ angular.module('App').controller('SampleCtrl', function ($scope, $ionicListDeleg
             // profile sharing
             PayPalMobile.renderProfileSharingUI(["profile", "email", "phone",
               "address", "futurepayments", "paypalattributes"
-            ], app.onAuthorizationCallback, app.onUserCanceled);
+            ], $scope.onAuthorizationCallback, $scope.onUserCanceled);
         };
     }
 
     $scope.onPayPalMobileInit= function () {
         // must be called
         // use PayPalEnvironmentNoNetwork mode to get look and feel of the flow
-        PayPalMobile.prepareToRender("PayPalEnvironmentSandbox", app.configuration(),
-          app.onPrepareRender);
+        PayPalMobile.prepareToRender("PayPalEnvironmentSandbox", $scope.configuration(),
+          $scope.onPrepareRender);
     }
 
     $scope.onUserCanceled= function (result) {
