@@ -126,7 +126,7 @@ angular.module('App').controller('SampleCtrl', function ($scope, $ionicListDeleg
             "PayPalEnvironmentSandbox": "AfYpJEHq1xr7hf3LKTiDKMIWrN5uW_ZDSX5Yr60AfopGP8Ja-yJDnUPqSZKimYC89FWTj-H_XsdcRxDi"
         };
         
-        PayPalMobile.init(clientIDs, app.onPayPalMobileInit);
+        PayPalMobile.init(clientIDs, $scope.onPayPalMobileInit);
         alert("payment plugin initialized");
   }
 
