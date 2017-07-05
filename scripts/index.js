@@ -75,7 +75,7 @@ var Newapp = {
         receivedElement.setAttribute('style', 'display:block;');
 
         console.log('Received Event: ' + id);
-        app.addRZPEventListener();
+        //app.addRZPEventListener();
         // start to initialize PayPalMobile library
         //app.initPaymentUI();
         
