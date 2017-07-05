@@ -17,14 +17,14 @@ angular.module('App').controller('SampleCtrl', function ($scope, $ionicListDeleg
 
 
   $scope.items = [
-{ id: 1, price: 500, brand: 'Wrangler', category: 'Mens TShirt', image: '/img/jeans.jpg', description: "Some description about the product" },
-{ id: 2, price: 600, brand: 'Levis', category: 'Mens Jeans', image: '/img/Jeans1.jpg', description: "Some description about the product" },
-{ id: 3, price: 800, brand: 'Pepe', category: 'Mens Formal Shirt', image: '/img/tshirt.jpg', description: "Some description about the product" },
-{ id: 4, price: 1500, brand: 'Lee', category: 'Women Jeans', image: '/img/TShirt1.jpg', description: "Some description about the product" },
-{ id: 5, price: 1500, brand: 'Parx', category: 'Mens Casual Shirt', image: '/img/TShirt2.jpg', description: "Some description about the product" },
-{ id: 6, price: 200, brand: 'Cotton Country', category: 'Mens Cotton Shirt', image: '/img/TShirt3.jpg', description: "Some description about the product" },
-{ id: 7, price: 2000, brand: 'Roadster', category: 'Mens Denims', image: '/img/tshirt.jpg', description: "Some description about the product" },
-{ id: 8, price: 1800, brand: 'Wrogn', category: 'Mens Casual Shirts', image: '/img/TShirt4.jpg', description: "Some description about the product" }
+{ id: 1, price: 500, brand: 'Wrangler', category: 'Mens TShirt', image: 'img/jeans.jpg', description: "Some description about the product" },
+{ id: 2, price: 600, brand: 'Levis', category: 'Mens Jeans', image: 'img/Jeans1.jpg', description: "Some description about the product" },
+{ id: 3, price: 800, brand: 'Pepe', category: 'Mens Formal Shirt', image: 'img/tshirt.jpg', description: "Some description about the product" },
+{ id: 4, price: 1500, brand: 'Lee', category: 'Women Jeans', image: 'img/TShirt1.jpg', description: "Some description about the product" },
+{ id: 5, price: 1500, brand: 'Parx', category: 'Mens Casual Shirt', image: 'img/TShirt2.jpg', description: "Some description about the product" },
+{ id: 6, price: 200, brand: 'Cotton Country', category: 'Mens Cotton Shirt', image: 'img/TShirt3.jpg', description: "Some description about the product" },
+{ id: 7, price: 2000, brand: 'Roadster', category: 'Mens Denims', image: 'img/tshirt.jpg', description: "Some description about the product" },
+{ id: 8, price: 1800, brand: 'Wrogn', category: 'Mens Casual Shirts', image: 'img/TShirt4.jpg', description: "Some description about the product" }
   ];
 
 
@@ -102,7 +102,7 @@ angular.module('App').controller('SampleCtrl', function ($scope, $ionicListDeleg
 
   $scope.checkout = function () {
       // $ionicLoading.show();
-
+      alert(" Here i m");
       $("#buyNowBtn").trigger("click");
   }
 
