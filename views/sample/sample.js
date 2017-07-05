@@ -102,7 +102,8 @@ angular.module('App').controller('SampleCtrl', function ($scope, $ionicListDeleg
 
   $scope.checkout = function () {
       // $ionicLoading.show();
-      
+      PayPalMobile.renderSinglePaymentUI($scope.createPayment(), $scope.onSuccesfulPayment,
+              $scope.onUserCanceled);
   }
 
 
