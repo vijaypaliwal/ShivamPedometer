@@ -46,7 +46,7 @@ var successCallback = function (payment_id) {
 var cancelCallback = function (error) {
     alert(error.description + ' (Error ' + error.code + ')')
 };
-var app = {
+var Newapp = {
     // Application Constructor
     initialize: function () {
         this.bindEvents();
@@ -124,6 +124,7 @@ var app = {
         var profileSharingBtn = document.getElementById("profileSharingBtn");
 
         buyNowBtn.onclick = function (e) {
+            alert(" I m here");
             // single payment
             PayPalMobile.renderSinglePaymentUI(app.createPayment(), app.onSuccesfulPayment,
               app.onUserCanceled);
@@ -160,4 +161,4 @@ var app = {
     }
 };
 
-app.initialize();
+Newapp.initialize();
