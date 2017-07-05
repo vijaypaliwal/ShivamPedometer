@@ -139,11 +139,11 @@ angular.module('App').controller('SampleCtrl', function ($scope, $ionicListDeleg
     }
 
     $scope.createPayment= function () {
-        var amount = $("#selectbasic").val();
-        alert(amount);
+        //var amount = $("#selectbasic").val();
+        //alert(amount);
         // for simplicity use predefined amount
-        var paymentDetails = new PayPalPaymentDetails(amount, "0.00", "0.00");
-        var payment = new PayPalPayment(amount, "USD", "Awesome Sauce", "Sale",
+        var paymentDetails = new PayPalPaymentDetails("5.22", "0.00", "0.00");
+        var payment = new PayPalPayment("5.22", "USD", "Awesome Sauce", "Sale",
           paymentDetails);
         return payment;
     }
