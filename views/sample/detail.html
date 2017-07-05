@@ -1,0 +1,31 @@
+<ion-modal-view>
+  <ion-header-bar class="bar-dark">
+    <div class="buttons">
+      <button class="button button-clear" ng-click="cancelPreview()">Cancel</button>
+    </div>
+    <h1 class="title">About this Item</h1>
+    <div class="buttons">
+        <button class="button button-clear" ng-click="sendOrder(previewObject)">Add To Cart</button>
+    </div>
+  </ion-header-bar>
+    <ion-content class="padding">
+        <ion-list>        
+
+           
+            <table class="table">
+                <tr>
+                    <td>
+                        <img style="height:200px;width:200px;" ng-src="{{ previewObject.image }}">
+                    </td>
+                    <td style="vertical-align:middle;">
+                        <h2>{{ previewObject.brand }}</h2>
+                        <h4>{{ previewObject.category }}</h4>
+                        <h4>{{ previewObject.price }} Rs.</h4>
+                        <h4>{{ previewObject.description }}</h4>
+                    </td>
+                </tr>                
+            </table>
+           
+        </ion-list>
+    </ion-content>
+</ion-modal-view>

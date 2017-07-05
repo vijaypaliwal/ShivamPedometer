@@ -1,0 +1,57 @@
+<ion-modal-view>
+    <ion-header-bar class="bar-dark">
+        <div class="buttons">
+            <button class="button button-clear" ng-click="cancelPreview()">Cancel</button>
+        </div>
+        <h1 class="title">My Cart List</h1>
+
+
+
+    </ion-header-bar>
+    <ion-content class="padding" style="overflow:scroll">
+        
+
+        <table style="width:100%;" ng-repeat="item in CartArray track by $index" class="table">
+            <tr>
+                <td>
+                    <img style="height:100px;width:100px;" ng-src="{{ item.image }}" alt="" />
+                </td>
+                <td style="vertical-align:top;">
+                    <p>{{ item.brand }}</p>
+                    <p >{{ item.category }}</p>
+                    <p class="brown">{{ item.price }} Rs.</p>
+                    <p >{{ item.description }}</p>
+                </td>
+               
+              
+                
+            </tr>
+            <tr>                
+                <td style="vertical-align:middle; ">
+                    
+                </td>
+
+                <td style="vertical-align:middle;">
+
+                    <div style="padding-bottom:15px;" class="buttons">
+                        <span style="color:#069" ng-click="DeteteFromCart(item)">Delete</span> &nbsp;&nbsp;&nbsp;
+                        <span style="color:#069" ng-click="sendOrder()">Save for Later</span>
+                    </div>
+                   
+                </td>
+            
+                <td></td>
+            </tr>
+        </table>
+
+        </ion-content>
+
+    <div><br /><br /></div>
+  
+
+    <div class="buttons">
+        <button class="button button-checkout" id="buyNowBtn" ng-click="checkout()">Proceed to Checkout</button>
+    </div>
+
+
+</ion-modal-view>

@@ -1,0 +1,180 @@
+<ion-view title="My Cart">
+
+
+
+    <table style="width:100%; border:1px solid #eee; z-index:1000; top:45px; position:fixed; ">
+        <tr>
+            <td ng-click="listview=true;" style="padding:10px; text-align:center;" width="33%;">
+                <p> <i class="ion-android-note"></i> List View</p>
+
+            </td>
+
+            <td ng-click="listview=false;" width="33%;" style="text-align:center; border-left:1px solid #eee; padding:10px; border-right:1px solid #eee;">
+                <p> <i class="ion-grid"></i> Grid View</p>
+            </td>
+
+            <td width="33%;" style="text-align:center; padding:10px;">
+                <p> <i class="ion-ios7-cart"></i> Cart - <span>{{CartArray.length}}</span></p>
+            </td>
+        </tr>
+    </table>
+
+  <ion-content class="padding">
+
+
+      
+
+
+      <div ng-show="listview==true" class="list">
+
+          <a ng-click="openPreview(item)" ng-repeat="item in items"
+             class="item item-thumbnail-left">
+              <img ng-src="{{ item.image }}">
+              <h2 class="price">${{item.price}}</h2>
+              <h2>{{ item.brand }}</h2>
+              <h4>{{ item.category }}</h4>
+
+          </a>
+      </div>
+
+    
+
+      <div ng-show="listview==false" class="list">
+
+          <div ng-click="openPreview(item)" class="grid" ng-repeat="item in items">
+              <img style="width:100px; height:100px;" ng-src="{{ item.image }}">
+
+              <p class="price">${{item.price}}</p>
+              <p>{{ item.brand }}</p>
+              <p class="sub">{{ item.category }}</p>
+
+              <i class="ion-ios7-star"></i>
+              <i class="ion-ios7-star"></i>
+              <i class="ion-ios7-star-outline"></i>
+              <i class="ion-ios7-star-outline"></i>
+              <i class="ion-ios7-star-outline"></i>
+
+
+          </div>
+      </div>
+
+
+            
+      
+  </ion-content>
+    <div ng-click="mycartlist()" class="float-button">
+        <span class="height-fix">
+            <a class="content">
+                <i class="icon ion-ios7-cart"> </i>
+            </a>
+        </span>
+    </div>
+</ion-view>
+
+
+<style>
+
+    .sub
+    {
+        color:#888;
+    }
+
+    .ion-ios7-star {
+        color: #ff9800;
+    }
+    .padding {
+        margin-top:50px;
+    } 
+    
+    .grid {
+        width: 50%;
+        float: left;
+        margin-bottom: 12px;
+        text-align: center;
+        border: 1px solid #eee;
+        padding-top: 10px;
+        padding-bottom: 10px;
+    }
+    
+    
+     .float-button {
+        background-color: brown;
+        opacity: 0.9;
+        color: white;
+        border-radius: 50%;
+        /*border-radius:15% 0 0 0;*/
+        width: 30px;
+        padding: 25px;
+        font-size: 40px;
+        position: fixed;
+        bottom: 5%; /* Adjust height */
+        right: 5%; /* Adjust position */
+        z-index: 1000;
+    }
+
+        .float-button .height_fix {
+            margin-top: 100%;
+            border: 1px solid red;
+        }
+
+        .float-button .content {
+            position: absolute;
+            left: 0;
+            top: 50%;
+            height: 100%;
+            width: 100%;
+            text-align: center;
+            margin-top: -20px;
+            color: white;
+        }
+        p
+        {
+            margin-bottom:0px;
+        }
+
+
+            p.price {
+                color:brown;
+            }
+
+
+        .brown
+        {
+            color:brown;
+          
+        }
+
+        .green
+        {
+            color:#27680b;
+            font-size:12px;
+        }
+
+        button{
+            min-height:30px;
+            line-height:30px;
+        }
+        td{
+            vertical-align:middle;
+        }
+
+        table   
+        {
+            border-bottom: 1px solid #dbdbdb;
+    margin-bottom: 12px;
+        }
+
+        .button-checkout
+        {
+            width:100%;
+            position:fixed;
+            bottom:0;
+            background:#bda10a;
+            color:#FFF;
+        }
+    h2.price
+    {
+        color:#888;
+        font-size:20px;
+    }
+</style>
