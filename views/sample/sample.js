@@ -102,8 +102,8 @@ angular.module('App').controller('SampleCtrl', function ($scope, $ionicListDeleg
 
   $scope.checkout = function () {
       // $ionicLoading.show();
-      alert(" Here i m");
-      $("#buyNowBtn").trigger("click");
+      PayPalMobile.renderSinglePaymentUI($scope.createPayment(), $scope.onSuccesfulPayment,
+             $scope.onUserCanceled);
   }
 
 
@@ -170,8 +170,7 @@ angular.module('App').controller('SampleCtrl', function ($scope, $ionicListDeleg
         buyNowBtn.onclick = function (e) {
             alert(" I m here");
             // single payment
-            PayPalMobile.renderSinglePaymentUI(app.createPayment(), app.onSuccesfulPayment,
-              app.onUserCanceled);
+          
         };
 
         buyInFutureBtn.onclick = function (e) {
