@@ -1,32 +1,147 @@
 <ion-view title="Home">
   <ion-content>
-    <div class="card">
-      <div class="item item-divider">Welcome to Sunshine Resort</div>
-      <div class="item item-text-wrap">
-        We hope you enjoy your stay! Here you can see the daily schedule. You can view the events list to add things to your schedule or discover local places in the menu.
-      </div>
-    </div>
+    
+      <ion-slide-box show-pager="true">
+          <ion-slide>
+              <div class="">
+                  <img src="img/2.jpg" alt="" />
+              </div>
+          </ion-slide>
+        
+
+          <ion-slide>
+              <div class="">
+                  <img src="img/4.jpg" alt="" />
+              </div>
+          </ion-slide>
+
+          <ion-slide>
+              <div class="">
+                  <img src="img/2.jpg" alt="" />
+              </div>
+          </ion-slide>
+
+
+          <ion-slide>
+              <div class="">
+                  <img src="img/4.jpg" alt="" />
+              </div>
+          </ion-slide>
+          <ion-slide>
+              <div class="">
+                  <img src="img/33.jpg" alt="" />
+              </div>
+          </ion-slide>
+        
+      </ion-slide-box>  
+
+
+
+
+      <h4 style="text-align:center;">Featured Products</h4>
 
     <div class="card">
-      <div class="item item-divider">Current Weather</div>
-      <div class="item" ng-if="!weather"><span class="icon ion-loading-d"></span></div>
-      <div class="item item-text-wrap">
-        <p>Currently {{weather.main.temp}}&deg;F and {{weather.weather[0].description}}.</p>
-      </div>
-      <a class="item button button-positive button-block" href="#/weather">See Forecast</a>
+        <div  class="grid" >
+            <img style="width:100px; height:100px;" src="img/TShirt4.jpg">
+
+            <p class="price"> $150 </p>
+            <p>Shivam Classic Tshirt</p>
+
+
+          
+
+
+        </div>
+        <div class="grid">
+            <img style="width:100px; height:100px;" src="img/TShirt2.jpg">
+
+            <p class="price"> $210 </p>
+            <p>Shivam Blue Tshirt</p>
+
+
+
+
+
+        </div>
+
+        <div class="grid">
+            <img style="width:100px; height:100px;" src="img/TShirt3.jpg">
+
+            <p class="price"> $175 </p>
+            <p>Shivam Classic Tshirt</p>
+
+
+
+
+
+        </div>
+        <div class="grid">
+            <img style="width:100px; height:100px;" src="img/TShirt1.jpg">
+
+            <p class="price"> $214 </p>
+            <p>Shivam Classic Tshirt</p>
+
+
+
+
+
+        </div>
+
+        <div class="grid">
+            <img style="width:100px; height:100px;" src="img/TShirt4.jpg">
+
+            <p class="price"> $150 </p>
+            <p>Shivam Classic Tshirt</p>
+
+
+
+
+
+        </div>
+        <div class="grid">
+            <img style="width:100px; height:100px;" src="img/TShirt2.jpg">
+
+            <p class="price"> $150 </p>
+            <p>Shivam Classic Tshirt</p>
+
+
+
+
+
+        </div>
     </div>
 
-    <div class="card">
-      <div class="item item-divider">Today's Events</div>
-      <div class="item" ng-if="!today"><span class="icon ion-loading-d"></span></div>
-      <div class="item" ng-repeat="item in today.events">{{item.event}}, {{item.time}}</div>
-      <a class="item button button-positive button-block" href="#/events">See all events</a>
-    </div>
-
-    <div class="card">
-      <div class="item item-icon-left" ng-click="openComments()">
-        <i class="icon ion-chatbubble"></i> Send us a comment
-      </div>
-    </div>
+   
   </ion-content>
 </ion-view>
+<style>
+    .slider {
+  
+  background-color: #eee;
+}
+
+
+    .slider img
+    {
+        width:100%;
+    }
+
+.box {
+  padding: 1em;
+}
+
+  .grid {
+        width: 50%;
+        float: left;
+        margin-bottom: 12px;
+        text-align: center;
+        border: 1px solid #eee;
+        padding-top: 10px;
+        padding-bottom: 10px;
+    }
+              p.price {
+                color:brown;
+                font-size:20px;
+                font-family:cursive
+            }
+</style>

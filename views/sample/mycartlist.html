@@ -10,7 +10,7 @@
     </ion-header-bar>
     <ion-content class="padding" style="overflow:scroll">
         
-
+        
         <table style="width:100%;" ng-repeat="item in CartArray track by $index" class="table">
             <tr>
                 <td>
@@ -18,18 +18,16 @@
                 </td>
                 <td style="vertical-align:top;">
                     <p>{{ item.brand }}</p>
-                    <p >{{ item.category }}</p>
+                    <p>{{ item.category }}</p>
                     <p class="brown">{{ item.price }} Rs.</p>
-                    <p >{{ item.description }}</p>
+                    <p>{{ item.description }}</p>
                 </td>
-               
-              
-                
+
+
+
             </tr>
-            <tr>                
-                <td style="vertical-align:middle; ">
-                    
-                </td>
+            <tr>
+                <td style="vertical-align:middle; "></td>
 
                 <td style="vertical-align:middle;">
 
@@ -37,9 +35,9 @@
                         <span style="color:#069" ng-click="DeteteFromCart(item)">Delete</span> &nbsp;&nbsp;&nbsp;
                         <span style="color:#069" ng-click="sendOrder()">Save for Later</span>
                     </div>
-                   
+
                 </td>
-            
+
                 <td></td>
             </tr>
         </table>

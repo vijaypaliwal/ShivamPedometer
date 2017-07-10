@@ -23,45 +23,46 @@
 
 
       
+      <label class="item item-input">
+          <input ng-model="SearchText" type="text" placeholder="Search products">
+          </label>
+          <div ng-show="listview==true" class="list">
 
+              <a ng-click="openPreview(item)" ng-repeat="item in items |filter:SearchText"
+                 class="item item-thumbnail-left">
+                  <img ng-src="{{ item.image }}">
+                  <h2 class="price">${{item.price}}</h2>
+                  <h2>{{ item.brand }}</h2>
+                  <h4>{{ item.category }}</h4>
 
-      <div ng-show="listview==true" class="list">
-
-          <a ng-click="openPreview(item)" ng-repeat="item in items"
-             class="item item-thumbnail-left">
-              <img ng-src="{{ item.image }}">
-              <h2 class="price">${{item.price}}</h2>
-              <h2>{{ item.brand }}</h2>
-              <h4>{{ item.category }}</h4>
-
-          </a>
-      </div>
-
-    
-
-      <div ng-show="listview==false" class="list">
-
-          <div ng-click="openPreview(item)" class="grid" ng-repeat="item in items">
-              <img style="width:100px; height:100px;" ng-src="{{ item.image }}">
-
-              <p class="price">${{item.price}}</p>
-              <p>{{ item.brand }}</p>
-              <p class="sub">{{ item.category }}</p>
-
-              <i class="ion-ios7-star"></i>
-              <i class="ion-ios7-star"></i>
-              <i class="ion-ios7-star-outline"></i>
-              <i class="ion-ios7-star-outline"></i>
-              <i class="ion-ios7-star-outline"></i>
-
-
+              </a>
           </div>
-      </div>
+
+      <ion-infinite-scroll ng-if="!noMoreItemsAvailable" on-infinite="loadMore()" distance="10%"></ion-infinite-scroll>
+
+          <div ng-show="listview==false" class="list">
+
+              <div ng-click="openPreview(item)" class="grid" ng-repeat="item in items|filter:SearchText">
+                  <img style="width:100px; height:100px;" ng-src="{{ item.image }}">
+
+                  <p class="price">${{item.price}}</p>
+                  <p>{{ item.brand }}</p>
+                  <p class="sub">{{ item.category }}</p>
+
+                  <i class="ion-ios7-star"></i>
+                  <i class="ion-ios7-star"></i>
+                  <i class="ion-ios7-star-outline"></i>
+                  <i class="ion-ios7-star-outline"></i>
+                  <i class="ion-ios7-star-outline"></i>
 
 
-            
-      
-  </ion-content>
+              </div>
+          </div>
+
+
+
+
+</ion-content>
     <div ng-click="mycartlist()" class="float-button">
         <span class="height-fix">
             <a class="content">

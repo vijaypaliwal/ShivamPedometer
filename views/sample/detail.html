@@ -1,17 +1,17 @@
 <ion-modal-view>
-  <ion-header-bar class="bar-dark">
-    <div class="buttons">
-      <button class="button button-clear" ng-click="cancelPreview()">Cancel</button>
-    </div>
-    <h1 class="title">About this Item</h1>
-    <div class="buttons">
-        <button class="button button-clear" ng-click="sendOrder(previewObject)">Add To Cart</button>
-    </div>
-  </ion-header-bar>
+    <ion-header-bar class="bar-dark">
+        <!--<div class="buttons">
+          <button class="button button-clear" ng-click="cancelPreview()">Cancel</button>
+        </div>-->
+        <h1 class="title">About this Item</h1>
+        <!--<div class="buttons">
+            <button class="button button-clear" ng-click="sendOrder(previewObject)">Add To Cart</button>
+        </div>-->
+    </ion-header-bar>
     <ion-content class="padding">
-        <ion-list>        
+        <ion-list>
 
-           
+
             <table class="table">
                 <tr>
                     <td>
@@ -23,9 +23,18 @@
                         <h4>{{ previewObject.price }} Rs.</h4>
                         <h4>{{ previewObject.description }}</h4>
                     </td>
-                </tr>                
+                </tr>
             </table>
-           
+
         </ion-list>
     </ion-content>
+    <ion-footer-bar class="bar-dark">
+        <div class="buttons">
+            <button class="button button-clear" ng-click="cancelPreview()">Cancel</button>
+        </div>
+        <h1 class="title"></h1>
+        <div class="buttons">
+            <button class="button button-clear" ng-click="sendOrder(previewObject)">Add To Cart</button>
+        </div>
+    </ion-footer-bar>
 </ion-modal-view>

@@ -71,7 +71,7 @@ angular.module('App', ['ionic', 'firebase'])
       }
     });
 
-  $urlRouterProvider.otherwise('/sample');
+  $urlRouterProvider.otherwise('/');
 })
 
 .run(function($ionicPlatform, $location) {
@@ -88,7 +88,7 @@ angular.module('App', ['ionic', 'firebase'])
 
   var firstVisit = localStorage.getItem('firstVisit');
   if (!firstVisit) {
-    $location.url('/sample');
+    $location.url('/');
   }
 })
 
